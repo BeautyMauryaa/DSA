@@ -1,3 +1,15 @@
+// 1 se N tak print karo (loop)-done
+// 2. Factorial nikalo (loop)  
+// 3. Check even/odd (condition)
+// 4. Star pattern (nested loop) 
+// 5. Fibonacci series (loop)-
+
+
+
+
+
+
+
 //FizzBuzz 412
 #include <iostream>
 #include <vector>
@@ -18,6 +30,31 @@ using namespace std;
 //     }
 // };
 
+
+int fib(int n){
+  if(n<=1) return n;
+  int a=0,b=1;
+  for(int i=2;i<=n;i++){
+      int next=a+b;
+      a=b;
+      b=next;
+  }
+  return b;
+}
+
+
+
+class Solution {
+public:
+    int forLoop(int low, int high) {
+        int sum=0;
+           for(int i=low;i<=high;i++){
+            sum+=i;
+           }
+           return sum;
+    }
+};
+
 // int main() {
 //     int n;
 //     cout << "Enter a number: ";
@@ -36,7 +73,7 @@ using namespace std;
 
 
 //sum of two number:
-// int main(){
+ int main(){
 // int arr={1,2,3,4,5};
 // int target;
 // cin>>target;
@@ -47,6 +84,13 @@ using namespace std;
 //         }
 //     }
 // }
-// }
+
+
+int n;
+cin>>n;
+int ans=fib(n);
+cout<<ans;
+return 0;
+ }
 
 //palindrome: 
