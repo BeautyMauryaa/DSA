@@ -47,7 +47,6 @@ add two pointer pattern
 fix kadane's edge case
 add merge sort from scratch
 ```
-|  |
 | ------- |
 | [0412-fizz-buzz](https://github.com/BeautyMauryaa/DSA/tree/master/0412-fizz-buzz) |
 <!---LeetCode Topics End-->
