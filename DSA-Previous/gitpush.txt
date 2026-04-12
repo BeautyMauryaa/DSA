@@ -1,9 +1,0 @@
-git add .
-git commit -m "Auto commit by Nova 🚀"
-git push origin main
-
-
-if want to delete:
-git rm sum.py
-git commit -m "Deleted file_name"
-git push origin main
