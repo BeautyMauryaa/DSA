@@ -4,16 +4,45 @@
 
 //#include<bits/stdc++.h>
 //function: 
-#include<iostream>
+// #include<iostream>
+// using namespace std;
+// int sum(int a,int b){// int=return type ,sum=name of function ,a and b=parameters 
+//     return a+b;//return statement = value that is returned by the function
+// }
+// int main(){
+//   int a;
+//   cin>>a;
+//   int b;
+//   cin>>b;
+//   cout<<sum(a,b)<<endl;
+//   return 0;
+// }
+
+
+//1.Pass by value and pass by reference:
+#include <iostream>
 using namespace std;
-int sum(int a,int b){// int=return type ,sum=name of function ,a and b=parameters 
-    return a+b;//return statement = value that is returned by the function
+ 
+void Addten(int x){
+ x=x+10;
+ cout<<"inside value fun: "<<x<<endl;
 }
+
+void Addtenref(int& x){
+  x=x+10;
+  cout<<"inside ref fun: "<<x<<endl;
+}
+
 int main(){
-  int a;
-  cin>>a;
-  int b;
-  cin>>b;
-  cout<<sum(a,b)<<endl;
+  int x;
+  cout<<"enter the value of x: ";
+  cin>>x;
+
+  Addten(x);
+  cout<<"after value call: "<<x<<endl;
+
+  Addtenref(x);
+  cout<<"after ref call: "<<x<<endl;
+
   return 0;
 }
