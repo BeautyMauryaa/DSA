@@ -54,7 +54,7 @@
 //     float marks;
 // };
 
-//memory: int 4 bytes,string: 8 bytes,float: 4 bytes and padding 4 bytes(padding means: )
+// memory: int 4 bytes,string: 8 bytes,float: 4 bytes and padding 4 bytes(padding means: )
 
 // void print(student &s)
 // {
@@ -129,18 +129,58 @@ public:
     static int schoolcode;
 };
 
+int Student::schoolcode = 100;
 
-int Student::schoolcode=100;
+struct Book
+{
+    string title;
+    string author;
+    float price;
 
-int main(){
-   Student s1,s2;
-   s1.marks=90;
-   s2.marks=89;
-   cout<<s1.marks<<" "<<s2.marks<<endl;
-   cout<<s1.schoolcode<<" "<<s2.schoolcode<<endl;
+    void display()
+    {
+        cout << "Title: " << title << endl
+             << "Author: " <<author << endl
+             << "Price: " <<price << endl;
+    }
+};
 
-   Student::schoolcode=200;
-   cout<<s1.schoolcode<<" "<<s2.schoolcode<<endl;
-   return 0;
+
+
+
+
+int main()
+{
+    Student s1, s2;
+    s1.marks = 90;
+    s2.marks = 89;
+    cout << s1.marks << " " << s2.marks << endl;
+    cout << s1.schoolcode << " " << s2.schoolcode << endl;
+
+    Student::schoolcode = 200;
+    cout << s1.schoolcode << " " << s2.schoolcode << endl;
+
+    Book B1 = {"C++", "Subh", 123.89};
+
+    Book *p1=&B1;
+    p1->display();
+
+    //    B1.title="C++";
+    //    B1.author="Subh";
+    //    B1.price=123.89;
+
+    // cout << "Title: " << B1.title << endl
+    //      << "Author: " << B1.author << endl
+    //      << "Price: " << B1.price << endl;
+    B1.display();
+
+cout<<endl;
+    Book b[2]={ {"The Alchemist", "Paulo Coelho", 299},
+    {"Atomic Habits", "James Clear", 399}};
+
+    Book *p2=b;
+    for(int i=0;i<2;i++){
+        p2[i].display();
+    }
+    return 0;
 }
-
