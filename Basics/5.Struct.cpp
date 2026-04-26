@@ -147,6 +147,12 @@ struct Book
 
 
 
+struct A{
+    int x;
+};
+
+
+
 
 
 int main()
@@ -182,5 +188,20 @@ cout<<endl;
     for(int i=0;i<2;i++){
         p2[i].display();
     }
+
+
+
+     A a1={10};
+    // A a2=a1;
+    // a2.x=12;
+    // cout<<a1.x;
+
+     A* p0= &a1;
+    A* p8 = p0;
+
+    p8->x = 99;
+
+    cout << a1.x;
+
     return 0;
 }
