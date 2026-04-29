@@ -1,0 +1,7 @@
+-STL-standard template lib(in simple way: its provide a premade lib so you can focus on logic instead of making everything manually from scratch)
+- pre made tool kit for dsa
+
+-It has three pillar:
+-1.Container(store the data)
+-2.algorithm(work for data)
+-3.Iterator(Navigate through container)
