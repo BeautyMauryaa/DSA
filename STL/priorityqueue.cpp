@@ -24,6 +24,13 @@ void aboutpq(){//max heap
     cout<<pq.top()<<endl;//90
     pq.pop();
     cout<<pq.top()<<endl;//30
+
+     cout<<"max heap: ";
+    while(!pq.empty()){
+        cout<<pq.top()<<" ";
+
+        pq.pop();
+    }
 }
 
 
@@ -37,10 +44,19 @@ void minheap(){
     pq.push(3);
     pq.push(20);
     pq.push(30);
+    pq.push(29);
+    pq.push(3);
 
     cout<<pq.top()<<endl;//3
     pq.pop();
     cout<<pq.top()<<endl;//10
+cout<<endl;
+
+    cout<<"min heap: ";
+    while(!pq.empty()){
+        cout<<pq.top()<<" ";
+        pq.pop();
+    }
 }
 
 int main(){
