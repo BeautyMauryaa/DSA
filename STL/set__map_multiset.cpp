@@ -1,5 +1,5 @@
 // set-sorted (unique element only)
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 void setdemo()
 {
@@ -37,33 +37,112 @@ void setques()
     cout << "\nUpper bound of 5: " << *it2;
 }
 
+// multiset(sorted order but can contain duplicate)
+void multisetdemo()
+{
 
-void multisetdemo(){
-    
- multiset<int> ms;
+    multiset<int> ms;
 
     ms.insert(10);
     ms.insert(5);
     ms.insert(10);
     ms.insert(20);
 
-    for(int x:ms)
-        cout<<x<<" ";
+    for (int x : ms)
+        cout << x << " ";
+
+    // count:
+    cout << "count 10: " << ms.count(10);
+
+    // erase
+    cout << endl;
+    ms.erase(ms.find(10));
+    cout << "after removing: ";
+    for (int x : ms)
+        cout << x << " ";
+
+    cout << endl;
+    for (int x : ms)
+        cout << x << " ";
+}
+
+// map-key-value pair container
+// key(sorted unique) and values(can be anything)
+// map<key,value>;
+// map<string,key>;
+// map<key,string>;
+// map<string,string>;
+void mapdemo()
+{
+     map<string,int> mp;
+    //     {"rihu",6},
+    //     {"swati",9},
+    //     {"nishu",4},
+    //     {"shruti",8},
+    //     {'rihu',7}
+    //  };
+
+    // mp[key]=value(update)
+    // mp.insert[{key,val}]=insert
+    // mp.erase(key)
+    // mp.find(key)-iterator
+    // mp.count(key)-0 ya 1
+    // mp.size()-size
+    // mp.empty()-empty check
+    // mp.at(key)-safe access
+
+    // insert by using insert fucntion;
+    mp["apple"] = 5;
+    mp["banana"] = 3;
+    mp["cherry"] = 8;
+    mp["apple"] = 10; // update not duplicate
+
+    cout << "Map: " << endl;
 
 
-        //cont
-        Cout<<"multiset count: ";
-        f) cout<<ms.count(10);
+    //old way to traverse
+    // for (auto p : mp)
+    // {
+    //     cout << p.first << "->" << p.second << "\n";
+    // }
 
-        ..
+    //modern way(c++17)
+    for(auto [key,val]:mp){
+        cout<<key<<" "<<val;
+    }
 
+    // search
 
+    if (mp.find("banana") != mp.end())
+        cout << "banana found: " << mp["banana"] << "\n";
+
+    // erase:
+    mp.erase("banana");
+    cout << "size after erase: " << mp.size() << "\n";
 }
 
 
+//multimap- one key-multiple value:
+void multimapdemo(){
+    multimap<string,int> mm;
+    mm.insert({"rihu",90});
+    mm.insert({"rihu",89});//same key allowed;
+    mm.insert({"beauty",90});
+
+    for(auto [key,val]:mm){
+        cout<<key<<" "<<val<<"\n";
+    }
+}
 int main()
 {
     setques();
     multisetdemo();
+    cout<<endl;
+    cout<<"Map"<<endl;
+    mapdemo();
+
+    cout<<endl;
+    cout<<"Multimap: "<<endl;
+    multimapdemo();
     return 0;
 }
