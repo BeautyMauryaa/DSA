@@ -1,7 +1,9 @@
-echo "*.exe
+*.exe
 *.o
 *.out
+
 output/
 .vscode/
+
 mypart.md
-dsasyllabus.pdf" > .gitignore
+dsasyllabus.pdf
