@@ -16,3 +16,13 @@ for ex: for(int i=0;i<n;i++){
 //average case(in middle )= technically o(n/2) but in big o ignore the constant value(why?)
 //big o doesn't count exact operation it only see growth rate
 //always keep large growth term 
+
+
+
+
+//how to measure:
+//1.count the operation 
+//2. loop iteration
+//3. nested loop nsquare(multiply)
+// 4. seperate loops (add) and ignore constant
+//5. half every iteration log ne
