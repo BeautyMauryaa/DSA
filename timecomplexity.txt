@@ -1,0 +1,18 @@
+-measure how many operation your code will perform as the number of input increases.
+-(measure growth/operation not time or sec )
+- big o notation: it is way to measure time and space complexity:
+1. o(1)-  constant time (means number of input increase but number of operation is same)
+2. o(n)- linear time (number of operation increases as the number of input increases)
+for ex: for(int i=0;i<n;i++){
+    cout<<i;
+}..here if n=5 then loop will run 5 time if n=10 then loop will run 10
+
+
+3. 0(n square)= nested loop
+4. 0(log n)= every step data half
+
+//bestcase: 0(1)
+//worst case: o(n)
+//average case(in middle )= technically o(n/2) but in big o ignore the constant value(why?)
+//big o doesn't count exact operation it only see growth rate
+//always keep large growth term 
