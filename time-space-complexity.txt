@@ -60,3 +60,31 @@ only a constant amount of extra memory is used (just one variable).
 
 So, the space complexity is O(1).
 
+
+
+//what is Time-Space Trade-off? 
+//- sometimes we use extra space to run our code faster 
+for(int i=0;i<n;i++)
+{
+    for(int j=i+1;j<n;j++)
+    {
+        if(arr[i]+arr[j]==target)
+            return true;
+    }
+}//-no extra space but tc=o(nsquare) and space o(1)
+
+
+Use HashMap
+unordered_map<int,int> mp;
+
+Time:
+
+O(n)
+
+Space:
+
+O(n)
+
+//so here We used extra memory to make the solution faster.
+
+
