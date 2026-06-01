@@ -26,3 +26,37 @@ for ex: for(int i=0;i<n;i++){
 //3. nested loop nsquare(multiply)
 // 4. seperate loops (add) and ignore constant
 //5. half every iteration log ne
+
+
+
+
+//space complexity: here we find how many extra space/memory our code is using excluding input:
+for ex:
+int sum =0;
+for(int i=0;i<n;i++)
+{
+    sum += arr[i];
+}
+- extra is sum which is one so sc=o(1) constant
+
+vector<int> temp;
+
+for(int i=0;i<n;i++)
+{
+    temp.push_back(arr[i]);
+}
+//if n=5 then temp will be 5 so here the o(n)
+ when calculating space complexity, we do not count the input itself.
+
+The array is already provided as input.
+
+We only consider how much additional (extra) memory the algorithm uses besides the input.
+
+Therefore, in the following code:
+
+int sum = 0;
+
+only a constant amount of extra memory is used (just one variable).
+
+So, the space complexity is O(1).
+
