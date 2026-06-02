@@ -11,6 +11,7 @@
 // 4. (a/b)%m=(a%m/b%m)%m
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 const int MOD = 1000000007;
