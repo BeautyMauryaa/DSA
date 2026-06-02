@@ -88,3 +88,12 @@ O(n)
 //so here We used extra memory to make the solution faster.
 
 
+
+//why recursive 0(2 to the power n):
+-recursive becoomes O(2ⁿ) when each function call makes 2 recursive calls, and this keep branching until depth n.
+//for ex: fibonacci - fib(n) calls fib(N-1) and fib(n-2), so at every level the number of calls double.
+//by the time we reach depth n, we have roughly 2ⁿ total calls.
+
+//why exactly 2ⁿ: Think of it like a binary tree. each node has 2 children, and the tree has depth n. a binary tree of depth n has at most 2ⁿ leaf nodes and 2ⁿ⁺¹ total nodes so the time complexity is O(2ⁿ).
+
+This is also why memoization helps, if we cache results, we avoid recomputing the same subtrees, which brings it down from O(2ⁿ) to O(n).
