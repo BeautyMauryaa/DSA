@@ -138,3 +138,13 @@ void primefactor(int n)
     if (n > 1)
         cout << n;
 }
+
+
+// GCD         → Euclidean: GCD(a,b) = GCD(b, a%b)
+// LCM         → (a/GCD) * b
+// Prime check → √n tak loop
+// Sieve       → O(n log log n)
+// Fast Pow    → O(log n), exp half karte raho
+// nCr         → n! / (r! * (n-r)!)
+// Mod sub     → (a-b+MOD) % MOD
+// Binary      → baar baar 2 se divide, remainder lao
