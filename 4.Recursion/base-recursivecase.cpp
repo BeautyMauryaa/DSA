@@ -100,3 +100,9 @@ void fun(){
 }
 
 //the call stack keep growing until memory is exhausted
+
+//recursive tree: a tree like diagram that represent all recusrive function calls generated during execution each node represent a functin call and branches represent further recursive calls until the base case is reached
+
+
+//Call Stack = How recursion runs
+// Recursion Tree = How recursion branches
