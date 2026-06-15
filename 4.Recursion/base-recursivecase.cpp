@@ -28,9 +28,75 @@ void fun(){
 }
 //runs forever until stack overflow because the function never stop calling itself
 
+
+void countdown(int n){
+    if(n==0){
+        cout<<"done\n";
+        return;
+    }
+    cout<<n<<" ";
+    countdown(n-1);
+}
 int main(){
     print(5);
+    int n=5;
+    countdown(n);
     return 0;
 }
 
 
+
+
+//call stack: memory space where function calls are stored temporarily
+// it follow LIFO rule(last in first out)
+//each function call has its own call stack
+// when a fucntion is called , its pushed onto the stack.
+// when a fucntion finishes execution, it is popped off the stack.
+// call stack is used to keep track of function calls and their return values
+
+//in simple word: call stack is a stack of functions that are currently being executed
+
+
+//whenever a function is called:
+//- a new stack frame is created.
+// - the stack frame is pushed onto the call stack
+// - when the fucntion finishes  its frame is removed from the call stack(popped)
+
+//what does a stack frame store:
+// each stack frame store the local variables of the function, function parameters, return address, execution state of the function
+
+//call stack in recursion: 
+//-in recursion a fucntion calls itself repeatedly
+// for every recursive call:
+// a new stackframe is pushed onto the stack
+// the previous function call waits until the new call completes
+// after reaching the base case, function start returning one by one
+
+// ex:
+int fact(int n){
+    if(n==1) return 1;
+    return n*fact(n-1);
+}
+
+//function call fact(4):
+//creates fact(4) -> fact(3) -> fact(2)-> fact(1) 
+//stack growth(lifo) -> fact(1) -> fact(2) -> fact(3) -> fact(4)
+//returning phase: base case reached fact(1)=1;
+//now stack start popping
+// fact(2)-> 2*1=2; fact(3)-> 3*2=6; fact(4)->4*6=24
+
+//visualization:
+//calling phase:  fact(4)->fact(3)->fact(2)->fact(1)
+//returning phase: fact(1)->1; fact(2)->2*1=2; fact(3)->3*2=6; fact(4)->4*6=24
+
+//why call stack important?
+//- it helps recursion remember current function state, variable values, pending operations, where executions should continue after a function returns
+//without the call stack recursive function cannot work
+
+
+//stack overflow: when there is no base condition and functin calls itself infinite times
+void fun(){
+    fun();
+}
+
+//the call stack keep growing until memory is exhausted
