@@ -1,18 +1,30 @@
 #include <iostream>
+#include <string>
+#include <cctype>
 using namespace std;
 bool strpalindrome(string a)
 {
+    string conversion;
+    for (char c : a)
+    {
+        if (isalnum(c))
+        {
+            conversion += tolower(c);
+        }
+    }
+
     int left = 0;
-    int right = a.length();
+    int right = conversion.length() - 1;
     while (left < right)
     {
-        if (a[left] != a[right])
+        if (conversion[left] != conversion[right])
         {
             return false;
         }
         left++;
         right--;
     }
+    return true;
 }
 
 int main()
