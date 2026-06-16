@@ -117,3 +117,22 @@ void fun()
 //  Risk of stack overflow	  No stack overflow
 //  Easier for trees/graphs	  Better for simple repetition
 //  Usually slower	          Usually faster
+
+
+//tail recursion: when the recursive call is the last operation performed in the function
+//ex:
+void print(int n){
+    if(n==0) return ;
+    cout<<n<<" ";
+    print(n-1);
+}
+
+//print(n-1) is the final statement nothing happens after the recursive calls return 
+
+
+//non tail recursion:
+void print(int n){
+    if(n==0) return;
+    print(n-1);
+    cout<<n<<" ";
+}
