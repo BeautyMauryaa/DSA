@@ -1,9 +1,12 @@
 // Array Manipulating concept:
 
-// C(Create) - Insertion   -> 1
-// R(Read)   - Traversal   -> 2
-// U(Update) - Modification -> 3
-// D(Delete) - Deletion    -> 4
+// 3. C(Create) - Insertion
+// 1. R(Read) - Traversal
+// 2. U(Update) - Modification
+// 4. D(Delete) - Deletion
+
+
+
 
 // 1. Traversal: Visiting
 //- process of visiting every element exactly once in a systematic order to perform some operation on it
