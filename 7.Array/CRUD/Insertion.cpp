@@ -21,7 +21,7 @@ int main()
         return 0;
     }
 
-    
+
     // shift element
     for (int i = size; i > index; i--)
     {
@@ -48,3 +48,13 @@ int main()
 //         10 20 30 40 _ 50
 // insert 24 at index 4:
 //         10 20 30 40 24 50
+
+
+
+
+//different type of insertion: 
+//1. insert at the end tc O(1) and sc O(1)
+//2.  insert at middle tc O(n) and sc O(1)
+//3. insert at start tc O(n) and sc O(n)
+
+
