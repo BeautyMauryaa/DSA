@@ -75,6 +75,8 @@ int forward(int arr[], int k)
     }
     return 0;
 }
+
+
 int backward(int arr[], int k)
 {
     for (int i = k - 1; i >= 0; i--)
