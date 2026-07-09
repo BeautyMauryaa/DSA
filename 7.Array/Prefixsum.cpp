@@ -30,6 +30,17 @@ using namespace std;
 //     return 0;
 // }
 
+
+
+int normal(int arr[], int n){
+    int prefix[6];
+    prefix[0]=arr[0];
+    for(int i=1;i<6;i++){
+        prefix[i]=prefix[i-1]+arr[i];
+    }
+}
+
+
 vector<int> buildprefix(vector<int> &arr)
 {
     int n = arr.size();
