@@ -68,3 +68,8 @@ int main()
     cout << rangeSum(prefix, 1, 3) << "\n";
     cout << rangeSum(prefix, 2, 4) << "\n";
 }
+
+
+
+//leftsum=prefix[i-1];
+//rightsum=prefix[n-1]-prefix[i]
