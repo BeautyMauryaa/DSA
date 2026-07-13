@@ -1,53 +1,251 @@
-//it is optimize technique where we maintain information about continous part of an array or string and move that window one step at a time instead of reclaculating everything from scratch
-// it is basically the smarter version of  two pointer
-// in this both pointer left and right will move in same direction instead of opposite
+
+// Sliding Window is an optimization technique used to solve problems involving continuous (consecutive) elements in an array or string.
+// Instead of recalculating every subarray from scratch, we reuse the previous window's result.
+
+// Why do we need Sliding Window?
+
+// Suppose
+// arr = [2,1,5,1,3,2]
+
+// k = 3
+
+// Find the maximum sum of any subarray of size 3.
+
+// Possible windows
+// [2 1 5] = 8
+// [1 5 1] = 7
+// [5 1 3] = 9
+// [1 3 2] = 6
+
+// Maximum = 9
+// ## Brute Force
+// For every window,
+// calculate the sum again.
+// 2+1+5
+// 1+5+1
+// 5+1+3
+// 1+3+2
+
+// Time Complexity
+
+// O(n × k)
+
+// Sliding Window Idea
+
+// Instead of calculating the new window from scratch,
+
+// reuse the previous window.
+
+// Example
+
+// Old Window
+// [2 1 5]
+// Sum = 8
+
+// Move one step
+// New Window
+// [1 5 1]
+// Instead of
+// 1+5+1
+// Do
+// Old Sum
+// 8
+// Remove Outgoing Element
+// 8 - 2 = 6
+// Add Incoming Element
+// 6 + 1 = 7
+// This is the entire Sliding Window concept.
+
+// Window Visualization
+// [2 1 5] 1 3 2
+
+// ↓
+
+// 2 [1 5 1] 3 2
+
+// ↓
+
+// 2 1 [5 1 3] 2
+
+// ↓
+
+// 2 1 5 [1 3 2]
+
+// The window keeps moving.
+
+//  Types of Sliding Window
+// 1. Fixed Size Window
+
+// Window size never changes.
+
+// Example
+// Size = 3
+
+// Problems
+//  Maximum Sum of Size K
+// Average of Size K
+//  Maximum Vowels of Length K
+ 
+//  2. Variable Size Window
+
+// Window size changes according to a condition.
+
+// Problems
+
+//  Longest Substring Without Repeating Characters
+//  Minimum Size Subarray Sum
+//  Longest Repeating Character Replacement
+
+//  Fixed Size Sliding Window Algorithm
+//  Step 1
+
+// Calculate first window sum.
+// windowSum = sum of first k elements
+
+//  Step 2
+
+// Store answer.
+
+// maxSum = windowSum;
+//  Step 3
+
+// Slide the window.
+
+// Every move
+
+// Remove outgoing element
+
+// Add incoming element
+
+// Formula
+
+// windowSum = windowSum - arr[i-k] + arr[i];
+// Update answer.
+
+//  Why `arr[i-k]`?
+
+// Example
+// arr
+
+// 2 1 5 1 3 2
+
+// k = 3
+// Current Window
+// [2 1 5]
+
+// Next Window
+// [1 5 1]
+
+// Incoming element
+// arr[3]
+
+// Outgoing element
+
+// arr[0]
+
+// Notice
+// 3 - 3 = 0
+// Now
+
+// i = 4
+
+// Incoming
+// arr[4]
+// Outgoing
+// arr[1]
+// Again
+// 4 - 3 = 1
+
+// Hence
+
+// arr[i-k]
+
+// always represents the outgoing element.
+
+// # Complexity
+//  Brute Force     O(n × k) O(1)  
+//  Sliding Window  O(n)      O(1)  
+
+// When should Sliding Window come to mind?
+// Whenever the question contains words like
+// Consecutive
+// Continuous
+// Subarray
+//  Substring
+//  Size K
+//  Window
+//  Maximum Sum
+//  Minimum Sum
+//  Average
+//  Count
+
+// # Difference Between Two Pointer & Sliding Window
+//  Two Pointer                                Sliding Window                    
+
+//  Two independent pointers                   Two pointers form one window      
+//  Used for pairs, palindrome, sorted arrays  Used for subarrays and substrings 
+//  Pointers may move differently             Window slides together            
+//  Example: Two Sum II                       Example: Maximum Sum Subarray     
+//  Trick 
+
+// When you read
+// > **"Subarray of size K"**
+
+// Don't think
+// Calculate every subarray.
+
+// Think
+// Can I reuse the previous window?
+
+// ↓
+
+// Remove one element
+
+// ↓
+
+// Add one element
+
+// ↓
+
+// Update answer
 
 
-//why sliding window exist?
-//suppose arr=[2,1,5,1,3,2];
-//we have to find maximum sum of subarray of size k, we can use two pointer but it will take O(n) time, we can use sliding window which will take O(k) time
+//  Rule
 
-//what are the subarray of size 3:
-// 2,1,5
-// 1,5,1
-// 5,1,3
-// 1,3,2
-
-//so instaed of checking every subarray we can use sliding window:
-
-
-//formula: 
-// Current sum= previous sum-outgoing element + incoming element 
-
+// If the next subarray is almost the same as the previous one, don't calculate it again.
+// Reuse the previous answer by removing the outgoing element and adding the incoming element.
 
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
-int maxSum(vector<int>& arr,int k){
-    int n=arr.size();
+int main()
+{
+    int arr[] = {2,1,3,4,5};
 
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    //step1: calculate the sum of the first window
-    int windowsum=0;
-    for(int i=0;i<k;i++){
-        windowsum+=arr[i];
+    int k = 3;
+
+    int windowSum = 0;
+
+    // First Window
+    for(int i = 0; i < k; i++)
+    {
+        windowSum += arr[i];
     }
 
+    int maxSum = windowSum;
 
-    int maxsum=windowsum;
-    //step 2: slide the window
-    for(int i=k;i<n;i++){
-        windowsum=windowsum-arr[i-k]+arr[i];
-        maxsum=max(windowsum,maxsum);
+    // Slide Window
+    for(int i = k; i < n; i++)
+    {
+        windowSum = windowSum - arr[i-k] + arr[i];
+
+        maxSum = max(maxSum, windowSum);
     }
-    return maxsum;
-}
 
+    cout << maxSum;
 
-int main(){
-    vector<int> arr={2,1,5,1,3,2};
-    int k=3;
-    cout<<maxSum(arr,k);
     return 0;
 }
