@@ -1,7 +1,7 @@
 // maximum subarray
 class Solution{
     public:
-    int lengthofLongestSubstring(string s){
+    int lengthOfLongestSubstring(string s){
         unordered_set<char> ch;
         int left=0;
         int maxlen=0;
@@ -9,7 +9,7 @@ class Solution{
             while(ch.count(s[i])){
                 ch.erase(s[left]);
                 left++;
-            }
+            };
             ch.insert(s[i]);
             maxlen=max(maxlen,i-left+1);
         }
